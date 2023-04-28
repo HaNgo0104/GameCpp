@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1682110841 source:d:\dh\ltnc\minesweepersdl2-main\minesweepersdl2-main\ms\buttons.cpp
+	"Variables.h"
+	"constant.h"
+	"Buttons.h"
+	"function1.h"
+
+1682111300 d:\dh\ltnc\minesweepersdl2-main\minesweepersdl2-main\ms\variables.h
+	"Texture.h"
+	"constant.h"
+	"Buttons.h"
+
+1682111506 d:\dh\ltnc\minesweepersdl2-main\minesweepersdl2-main\ms\texture.h
+	<iostream>
+	<time.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	<string>
+	<vector>
+
+1682111423 d:\dh\ltnc\minesweepersdl2-main\minesweepersdl2-main\ms\constant.h
+	<iostream>
+
+1682111186 d:\dh\ltnc\minesweepersdl2-main\minesweepersdl2-main\ms\buttons.h
+	<SDL.h>
+
+1682111381 d:\dh\ltnc\minesweepersdl2-main\minesweepersdl2-main\ms\function1.h
+	"Timer.h"
+	<SDL.h>
+
+1682111265 d:\dh\ltnc\minesweepersdl2-main\minesweepersdl2-main\ms\timer.h
+	<SDL.h>
+
+1682305451 source:d:\dh\ltnc\minesweepersdl2-main\minesweepersdl2-main\ms\function1.cpp
+	"Texture.h"
+	"Variables.h"
+	"constant.h"
+	"Buttons.h"
+	"function1.h"
+	"Timer.h"
+	<sstream>
+	<fstream>
+
+1682110985 source:d:\dh\ltnc\minesweepersdl2-main\minesweepersdl2-main\ms\main.cpp
+	"Texture.h"
+	"Buttons.h"
+	"Variables.h"
+	"constant.h"
+	"function1.h"
+
+1682110787 source:d:\dh\ltnc\minesweepersdl2-main\minesweepersdl2-main\ms\texture.cpp
+	"Texture.h"
+	"Variables.h"
+
+1682110875 source:d:\dh\ltnc\minesweepersdl2-main\minesweepersdl2-main\ms\timer.cpp
+	"Timer.h"
+
+1682111053 source:d:\dh\ltnc\minesweepersdl2-main\minesweepersdl2-main\ms\variables.cpp
+	"Variables.h"
+	<iostream>
+
