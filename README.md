@@ -1,19 +1,22 @@
-### MINESWEEPER 
+### MINESWEEPER - PHIÊN BẢN "CÂY NHÀ LÁ VƯỜN"
 ![menu](https://github.com/HaNgo0104/GameCpp/assets/126258832/447d9097-00ab-4048-a9be-74de9c76b192)
 
 ------
 
 ## Đặc điểm
-### :grey_question: Ý tưởng
-### :baby: Dễ sử dụng
-### :memo: Cấu hình 
-### :triangular_flag_on_post: Tài liệu tham khảo
+
+### 🧠 Giải trí, luyện não
+### 📝 Offline
+### 🔥Kiểu dáng đẹp, dễ dàng thay đổi
+### 👶 Dễ sử dụng
+
+*\* Miễn là bạn biết chữ và biết chơi MineSweeper.*
 
 ------
 
 ## ❔ Ý tưởng
 
-### Tại sao chọn game 
+### Lý do chọn game 
 
   Đây là 1 "simple game" mình rất thích hồi nhỏ (Giờ mình vẫn thích 😸), và mình khá chắc đây là con game tuổi thơ của đa số mọi người thời 9x, 10x. Mình muốn tự mình có thể code ra con game "tuổi thơ" này, vì nó vừa mang tính sáng tạo, luyện não, còn phải nhanh để có thời gian nhanh nhất (mặc dù time-limit nhưng ai chẳng muốn mình đạt kỉ lục gì đấy mà, đúng không?). 
   
@@ -28,6 +31,13 @@
   ⚙️ Từ offline thành online
   
   🏁 Đổi đấu đơn thành Co-op (tính điểm theo cách dò mìn, độ nhanh/trễ của từng người)
+  
+  :basecampy: Đa dạng bảng mìn dựa theo hình ảnh cụ thể 
+  
+  vd: 
+  
+  ![download](https://github.com/HaNgo0104/GameCpp/assets/126258832/05c36ed5-516c-419a-b8af-29a422ee641e)
+
   
 ------
 
