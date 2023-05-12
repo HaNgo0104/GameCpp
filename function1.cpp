@@ -13,13 +13,12 @@ LButton goBack;
 LButton sound;
 LTimer timer;
 
-//initialization func
+///Khoi tao man hinh
 bool init()
 {
-	//Initialization flag
 	bool success = true;
 
-	//Initialize SDL
+	//khoi tao SDL
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
@@ -27,13 +26,13 @@ bool init()
 	}
 	else
 	{
-		//Set texture filtering to linear
+		//ti le ve renderer
 		if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1"))
 		{
 			printf("Warning: Linear texture filtering not enabled!");
 		}
 
-		//Create window
+		//tao cua so cho minesweepers
 		window = SDL_CreateWindow(WINDOW_TITLE.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		if (window == NULL)
 		{
@@ -42,7 +41,6 @@ bool init()
 		}
 		else
 		{
-			//Create vsynced renderer for window
 			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 			if (renderer == NULL)
 			{
@@ -51,10 +49,10 @@ bool init()
 			}
 			else
 			{
-				//Initialize renderer color
+				//Thiet lap mau
 				SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
-				//Initialize PNG loading
+				//khoi tao anh dang PNG
 				int imgFlags = IMG_INIT_PNG;
 				if (!(IMG_Init(imgFlags) & imgFlags))
 				{
@@ -62,13 +60,13 @@ bool init()
 					success = false;
 				}
 
-				//Initialize SDL_ttf
+				//Khoi tao thu vien SDL_ttf  (ve ky tu va font chu)
 				if (TTF_Init() == -1)
 				{
 					printf("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
 					success = false;
 				}
-				//Initialize SDL_mixer
+				//Khoi tao SDL_mixer
 				if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
 				{
 					printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
@@ -81,10 +79,11 @@ bool init()
 	return success;
 }
 
+///Khoi tao menu, cac hien thi trong do min
 bool loadmedia()
 {
 	bool success = true;
-	//Open image of tiles
+	// Mo tep ki tu
 	if (!Tiles_image.loadFromFile("res/images/tiles5.jpg"))
 	{
 		printf("Can't load this image from file!");
@@ -92,7 +91,7 @@ bool loadmedia()
 	}
 	else
 	{
-		//Set sprites
+		//Cac o tren do min
 		for (int i = 0;i < 12;++i)
 		{
 			Tilesprites[i].x = i * TILE_SIZE;
@@ -101,7 +100,7 @@ bool loadmedia()
 			Tilesprites[i].h = TILE_SIZE;
 		}
 	}
-	//load digits
+	//digits - anh kich thuoc 280x46
 	if (!Digits.loadFromFile("res/images/Untitled1.png"))
 	{
 		printf("Fail");
@@ -109,7 +108,7 @@ bool loadmedia()
 	}
 	else
 	{
-		//Set sprites
+		//sprites
 		for (int i = 0;i < 10;i++)
 		{
 			Digitsprites[i].x = i * 28;
@@ -118,35 +117,38 @@ bool loadmedia()
 			Digitsprites[i].h = 46;
 		}
 	}
-	//load easy table
+	// man easy
 	if (!easyTable.loadFromFile("res/images/easy.png"))
 	{
 		printf("Fail");
 		success = false;
 	}
-	//load medium table
+	//medium
 	if (!mediumTable.loadFromFile("res/images/medium.png"))
 	{
 		printf("Fail");
 		success = false;
 	}
-	//load hard table
+	//hard
 	if (!hardTable.loadFromFile("res/images/hard.png"))
 	{
 		printf("Fail");
 		success = false;
 	}
-	//load face
+	//face win
 	if (!winFace.loadFromFile("res/images/winface.png"))
 	{
 		printf("Fail");
 		success = false;
 	}
+
+	//facelose
 	if (!loseFace.loadFromFile("res/images/loseface.png"))
 	{
 		printf("Fail");
 		success = false;
 	}
+	//mat luc choi
 	if (!playingFace.loadFromFile("res/images/playingface.png"))
 	{
 		printf("Fail");
@@ -164,15 +166,15 @@ bool loadmedia()
 	{
 		success = false;
 	}
-	//Open the font
-	gFont = TTF_OpenFont("res/font.ttf", 20);
+	//font chu
+	gFont = TTF_OpenFont("res/font.ttf", 20); // font kich thuoc 20
 	if (gFont == NULL)
 	{
 		printf("Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError());
 		success = false;
 	}
 	//load text
-	SDL_Color textcolor1 = { 255,255,255 };
+	SDL_Color textcolor1 = { 255,255,255 }; // mau trang
 	if (!menu.loadFromRenderedText("START", textcolor1))
 	{
 		printf("Fail");
@@ -181,7 +183,7 @@ bool loadmedia()
 	{
 		printf("fail!");
 	}
-	SDL_Color color = { 255,0,0 };
+	SDL_Color color = { 255,0,0 }; // mau do
 	if (!menuColor.loadFromRenderedText("START", color))
 	{
 		printf("Fail");
@@ -217,16 +219,17 @@ bool loadmedia()
 	return success;
 }
 
+/// Hien thi menu
 bool loadMenuMedia()
 {
 	bool success = true;
-	//load background of menu
+	//background cua menu
 	if (!menuTheme.loadFromFile("res/images/menu.jpg"))
 	{
 		printf("Fail!");
 		success = false;
 	}
-	//load level choice
+	//mode game
 	if (!levelTheme.loadFromFile("res/images/mode.jpg"))
 	{
 		printf("Fail");
@@ -235,7 +238,7 @@ bool loadMenuMedia()
 	if (!customStart.loadFromFile("res/images/custom.png"))
 	{
 		printf("Fail");
-		success = true;
+		success = false;
 	}
 	//load choice text
 	SDL_Color textColor = { 255,255,255 };
@@ -345,8 +348,8 @@ void setButtonPosition()
 void createMenu()
 {
 	menuTheme.render(0, 0);
-	menu.render(300, 400);
-	menu1.render(450, 400);
+	menu.render(300, 430);
+	menu1.render(500, 430);
 	SDL_RenderPresent(renderer);
 }
 
@@ -375,13 +378,15 @@ void showMenu()
 				mainLoop = false;
 				isMenuShowing = false;
 			}
+
+			// vi tri chuot
 			if (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEMOTION)
 			{
 				int x, y;
 				SDL_GetMouseState(&x, &y);
-				if (x > 300 && x < 300 + menu.getWidth() && y > 400 && y < 400 + menu.getHeight()) startInside = true;
+				if (x > 300 && x < 300 + menu.getWidth() && y > 430 && y < 430 + menu.getHeight()) startInside = true;
 				else startInside = false;
-				if (x > 450 && x < 450 + menu1.getWidth() && y > 400 && y < 400 + menu1.getHeight()) exitInside = true;
+				if (x > 500 && x < 500 + menu1.getWidth() && y > 430 && y < 430 + menu1.getHeight()) exitInside = true;
 				else exitInside = false;
 				if (event.type == SDL_MOUSEBUTTONDOWN)
 				{
@@ -404,15 +409,15 @@ void showMenu()
 				{
 					if (startInside == true)
 					{
-						menuColor.render(300, 400);
+						menuColor.render(300, 430);
 					}
-					else menu.render(300, 400);
+					else menu.render(300, 430);
 					if (exitInside == true)
 					{
-						menu1Color.render(450, 400);
+						menu1Color.render(500, 430);
 
 					}
-					else menu1.render(450, 400);
+					else menu1.render(500, 430);
 				}
 
 			}
@@ -835,6 +840,8 @@ void MineManager()
 	}
 }
 
+
+///thoi gian
 void TimeManager()
 {
 	int n = timer.getTicks() / 1000;
@@ -902,7 +909,7 @@ void renderButton()
 
 void renderGame()
 {
-	if (mute == false)
+	if (mute == false) //onmute = true
 	{
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
 		SDL_RenderClear(renderer);
