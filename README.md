@@ -54,7 +54,15 @@ Gần tương tự với các minesweeper đời đầu (có từ thời Window 
   * Ô bên trái là số mìn có trong bảng. Bạn tìm đủ số mìn ván chơi yêu cầu, đồng nghĩa với việc **YOU WIN**.
    
   * Icon ở giữa sẽ cười nếu bạn thắng, và ngược lại. Ấn vào đấy nếu muốn reset trận đấu.
+
+### Khác biệt
    
+   Điểm khác biệt khi chơi game của mình chính là những con số ẩn sau các block màu. Nếu không đọc hướng dẫn, có thể bạn sẽ rất hoang mang khi chơi. Chơi nhiều lần mà chưa nghiệm ra được quy luật thì nhìn xuống đây nhé.
+   
+  ![tiless](https://github.com/HaNgo0104/GameCpp/assets/126258832/06291dd6-a872-4b73-8032-c41032ea4f6c)
+
+  ![tiles5](https://github.com/HaNgo0104/GameCpp/assets/126258832/c967049c-0be8-4384-80a7-dffb5ca20f1a)
+
    
 ### Hướng dẫn chơi
 
