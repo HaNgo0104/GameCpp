@@ -13,7 +13,7 @@ LButton goBack;
 LButton sound;
 LTimer timer;
 
-///Khoi tao tat ca moi thu
+///Khoi tao man hinh
 bool init()
 {
 	bool success = true;
@@ -41,7 +41,6 @@ bool init()
 		}
 		else
 		{
-			//Create vsynced renderer for window
 			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 			if (renderer == NULL)
 			{
@@ -349,8 +348,8 @@ void setButtonPosition()
 void createMenu()
 {
 	menuTheme.render(0, 0);
-	menu.render(300, 400);
-	menu1.render(450, 400);
+	menu.render(300, 430);
+	menu1.render(500, 430);
 	SDL_RenderPresent(renderer);
 }
 
@@ -385,9 +384,9 @@ void showMenu()
 			{
 				int x, y;
 				SDL_GetMouseState(&x, &y);
-				if (x > 300 && x < 300 + menu.getWidth() && y > 400 && y < 400 + menu.getHeight()) startInside = true;
+				if (x > 300 && x < 300 + menu.getWidth() && y > 430 && y < 430 + menu.getHeight()) startInside = true;
 				else startInside = false;
-				if (x > 450 && x < 450 + menu1.getWidth() && y > 400 && y < 400 + menu1.getHeight()) exitInside = true;
+				if (x > 500 && x < 500 + menu1.getWidth() && y > 430 && y < 430 + menu1.getHeight()) exitInside = true;
 				else exitInside = false;
 				if (event.type == SDL_MOUSEBUTTONDOWN)
 				{
@@ -410,15 +409,15 @@ void showMenu()
 				{
 					if (startInside == true)
 					{
-						menuColor.render(300, 400);
+						menuColor.render(300, 430);
 					}
-					else menu.render(300, 400);
+					else menu.render(300, 430);
 					if (exitInside == true)
 					{
-						menu1Color.render(450, 400);
+						menu1Color.render(500, 430);
 
 					}
-					else menu1.render(450, 400);
+					else menu1.render(500, 430);
 				}
 
 			}
